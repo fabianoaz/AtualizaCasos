@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function atualiza() {
+            window.open("AtualizaInformacoesTestlink.asmx", "blank", "", false);
+        }
+        function retornaDraft() {
+            window.open("RetornaInformacoesTestlink.asmx?op=ConsultaDraft", "blank", "", false);
+        }
+        function retornaFuture() {
+            window.open("RetornaInformacoesTestlink.asmx?op=ConsultaFuture", "blank", "", false);
+        }
+        function retornaFinal() {
+            window.open("RetornaInformacoesTestlink.asmx?op=ConsultaFinal", "blank", "", false);
+        }
+    </script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button onclick="atualiza()">Atualiza</button>
+    <div>
+        <div>
+            <button onclick="retornaDraft()">Retorna Draft</button>
+        </div>
+        <div>
+            <button onclick="retornaFuture()">Retorna Future</button>
+        </div>
+        <div>
+            <button onclick="retornaFinal()">Retorna Final</button>
+        </div>
+    </div>
+</body>
+</html>

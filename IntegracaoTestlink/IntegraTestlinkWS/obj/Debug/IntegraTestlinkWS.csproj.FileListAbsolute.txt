@@ -1,0 +1,7 @@
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\bin\IntegraTestlinkWS.dll.config
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\bin\IntegraTestlinkWS.dll
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\bin\IntegraTestlinkWS.pdb
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\obj\Debug\IntegraTestlinkWS.csprojResolveAssemblyReference.cache
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\obj\Debug\IntegraTestlinkWS.dll
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\obj\Debug\IntegraTestlinkWS.pdb
+C:\Users\Fabiano\Documents\Visual Studio 2017\Projects\IntegracaoTestlink\IntegraTestlinkWS\bin\MySql.Data.dll

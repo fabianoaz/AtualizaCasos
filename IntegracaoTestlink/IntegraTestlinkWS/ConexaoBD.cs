@@ -13,7 +13,7 @@ namespace IntegraTestlinkWS
         public MySqlConnection Conectar()
         {
             MySqlConnection conn;
-            conn = new MySqlConnection("server=localhost;database=testlink;uid=root;pwd=1234");
+            conn = new MySqlConnection("server=localhost;database=testelink_producao;uid=root;pwd=1234");
 
             try
             {

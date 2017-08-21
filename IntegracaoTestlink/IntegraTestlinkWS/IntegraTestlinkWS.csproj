@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AtualizaInformacoesTestlink.asmx" />
+    <Content Include="ChamaWebService.html" />
     <Content Include="index.html" />
     <Content Include="RetornaInformacoesTestlink.asmx" />
     <Content Include="Web.config" />

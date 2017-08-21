@@ -1,0 +1,93 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Teste</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    function GetDraft() {
+        $.ajax({
+            type: 'POST'
+                //Caminho do WebService + / + nome do metodo
+            , url: "RetornaInformacoesTestlink.asmx/ConsultaDraft"
+                , contentType: 'application/json; charset=utf-8'
+                , dataType: 'json'
+                //Abaixo adicione as variáveis caso haja alguma.
+                , data: ''
+                , success: function (data, status) {
+                    //Caso não ocorra nenhum tipo de erro:
+                    $('.draft').text(data.d);
+                }
+                , error: function (xmlHttpRequest, status, err) {
+                    //Caso ocorra algum erro:
+                    $('.draft').html('Ocorreu um erro');
+                }
+        });
+        }
+        function GetFuture() {
+            $.ajax({
+                type: 'POST'
+                //Caminho do WebService + / + nome do metodo
+                , url: "RetornaInformacoesTestlink.asmx/ConsultaFuture"
+                , contentType: 'application/json; charset=utf-8'
+                , dataType: 'json'
+                //Abaixo adicione as variáveis caso haja alguma.
+                , data: ''
+                , success: function (data, status) {
+                    //Caso não ocorra nenhum tipo de erro:
+                    $('.future').text(data.d);
+                }
+                , error: function (xmlHttpRequest, status, err) {
+                    //Caso ocorra algum erro:
+                    $('.future').html('Ocorreu um erro');
+                }
+            });
+        }
+        function GetFinal() {
+            $.ajax({
+                type: 'POST'
+                //Caminho do WebService + / + nome do metodo
+                , url: "RetornaInformacoesTestlink.asmx/ConsultaFinal"
+                , contentType: 'application/json; charset=utf-8'
+                , dataType: 'json'
+                //Abaixo adicione as variáveis caso haja alguma.
+                , data: ''
+                , success: function (data, status) {
+                    //Caso não ocorra nenhum tipo de erro:
+                      $('.final').text( data.d);
+                }
+                , error: function (xmlHttpRequest, status, err) {
+                    //Caso ocorra algum erro:
+                    $('.final').html('Ocorreu um erro');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server" style="height:auto">
+        <div>
+            <input type="button" onclick="GetDraft();" value="Em Rascunho" />
+        </div>
+        <div>
+            <input type="button" onclick="GetFuture();" value="Em Future" />
+        </div>
+        <div>
+            <input type="button" onclick="GetFinal();" value="Em Final" />
+        </div>
+        <div>
+            <input type="button" onclick="GetDraft(); GetFuture(); GetFinal();" value="Todos" />
+        </div>
+
+            <strong>Demandas:</strong>
+            <div>
+                <span class="draft" style="width: auto; background-color: red;"></span>
+            </div>
+            <div>
+                <span class="future" style="width: auto; background-color: blue; margin-left: 1px;"></span>
+            </div>
+            <div>
+                <span class="final"  style="width: auto; background-color: yellow; margin-left: 1px;"></span>
+            </div>
+
+    </form>
+</body>
+</html>

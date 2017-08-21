@@ -16,12 +16,12 @@ namespace IntegraTestlinkWS
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class RetornaInformacoesTestlink : System.Web.Services.WebService
     {
 
         [WebMethod]
-        public string ConsultaDraft()
+        public ArrayList ConsultaDraft()
         {
             ArrayList meuArray = new ArrayList();
 
@@ -47,23 +47,11 @@ namespace IntegraTestlinkWS
                 meuArray.Add(Convert.ToString(reader.GetInt32(0)));
             }
 
-            string result = "";
-
-            foreach (string dados in meuArray)
-            {
-                if (meuArray.Count <= 1)
-                {
-                    result = result + dados;
-                }else
-                {
-                    result = result + dados + ";" ;
-                }
-            }
-                return result;
+            return meuArray;
         }
 
         [WebMethod]
-        public string ConsultaFuture()
+        public ArrayList ConsultaFuture()
         {
             ArrayList meuArray = new ArrayList();
 
@@ -86,25 +74,11 @@ namespace IntegraTestlinkWS
             {
                 meuArray.Add(Convert.ToString(reader.GetInt32(0)));
             }
-
-            string result = "";
-
-            foreach (string dados in meuArray)
-            {
-                if (meuArray.Count <= 1)
-                {
-                    result = result + dados;
-                }
-                else
-                {
-                    result = result + dados + ";";
-                }
-            }
-            return result;
+            return meuArray;
         }
 
         [WebMethod]
-        public string ConsultaFinal()
+        public ArrayList ConsultaFinal()
         {
             ArrayList meuArray = new ArrayList();
 
@@ -116,7 +90,7 @@ namespace IntegraTestlinkWS
                          "on cfield_design_values.node_id = tcversions.id " +
                          "and tcversions.creation_ts >= '2016-11-25' " +
                          "and tcversions.status = 7	" +
-                         "order by tcversions.creation_ts desc limit 100;";
+                         "order by tcversions.creation_ts desc limit 10;";
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -127,23 +101,7 @@ namespace IntegraTestlinkWS
             {
                 meuArray.Add(Convert.ToString(reader.GetInt32(0)));
             }
-
-            string result = "";
-
-            foreach (string dados in meuArray)
-            {
-                if (meuArray.Count <= 1)
-                {
-                    result = result + dados;
-                }
-                else
-                {
-                    result = result + dados + ";";
-                }
-            }
-
-                return result;
-
+                return meuArray;
         }
     }
 }

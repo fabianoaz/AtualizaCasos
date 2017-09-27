@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="moduloPrincipal">
+<head>
+	<meta charset="utf-8" />
+	<title>Lista de Casos</title>
+	<script src="../lib/js/angular.js"></script>
+	<script src="../lib/js/listaCasosAngular.js"></script>
+	<script src="../lib/js/atualizaCasosAngular.js"></script>
+	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<script>
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");	
+			//ev.target.appendChild(document.getElementById(data));
+			ev.target.innerHTML = document.getElementById(data);
+		}
+	</script>	
+</head>
+
+<body ng-controller="ControllerInicial">
+	<div class="jumbotron">
+		<div class="text-center">
+			<h2>{{nomeAppLista}}</h2>
+		</div>
+	</div>
+	<div style="margin-left: 10%; height: 100%;">
+		<div ng-controller="draftController" style="float: left;">
+			<table border="1" style="width: 15%">
+				<thead>
+					<th class="text-center">Draft</th>
+				</thead>
+				<tbody>
+					<tr class="text-center">
+						<td style="width: 50px; height: 50px;" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<div style="width: 50px; height: 50px;" id="0" ondragstart="drag(event)" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						</td>
+						<td style="width: 50px; height: 50px;" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<div style="width: 50px; height: 50px;" id="1" ondragstart="drag(event)" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						</td>
+						<td style="width: 50px; height: 50px;" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<div style="width: 50px; height: 50px;" id="2" ondragstart="drag(event)" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						</td>
+					</tr> 
+				</tbody>
+			</table>
+		</div>
+
+		<div ng-controller="futureController" style="float: left">
+			<table border="1" style="width: 15%">
+				<thead>
+					<th class="text-center">Future</th>
+				</thead>
+				<tbody>
+					<tr class="text-center" ng-repeat="f in future">
+						<td style="width: 50px; height: 50px;"  id="{{d}}" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<!--div style="width: 50px; height: 50px;" id="{{d}}" ondragstart="drag(event)" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">2</div-->
+						{{d}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div ng-controller="finalController" style="float: left">
+			<table border="1" style="width: 15%">
+				<thead>
+					<th class="text-center">Final</th>
+				</thead>
+				<tbody>
+					<tr class="text-center" ng-repeat="f in final">
+						<td style="width: 50px; height: 50px;" id="{{d}}">{{d}}</td>
+						<!--div style="width: 50px; height: 50px;" id="{{d}}" ondragstart="drag(event)" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)">3</div-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+
+</html>

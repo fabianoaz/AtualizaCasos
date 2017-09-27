@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lista e Atualiza</title>
+	<script src="../lib/js/angular.js"></script>
+	<script src="../lib/js/listaCasosAngular.js"></script>
+	<script src="../lib/js/atualizaCasosAngular.js"></script>
+	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function carregar(){
+			document.getElementById("lista").innerHTML='<object style="margin-left: 5%; width: 600px; height: 800px; float: left" type="text/html" data="listaCasos.html" ></object>';
+			document.getElementById("atualiza").innerHTML='<object style="margin-left: 2.5%; width: 600px; height: 800px; float: left" type="text/html" data="atualizaCasos.html" ></object>';
+		}
+	</script>
+</head>
+<body onload="carregar()">
+	<div id="lista"></div>
+	<div id="atualiza"></div>
+</body>
+</html>

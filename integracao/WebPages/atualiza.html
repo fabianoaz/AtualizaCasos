@@ -1,0 +1,42 @@
+﻿<div ng-app="moduloAtualizacao">
+<div>
+    <script src="../lib/js/angular.js"></script>
+    <script src="../lib/js/atualizaCasosAngular.js"></script>
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</div>
+    <div class="jumbotron">
+        <div ng-controller="NomeAplicacao" class="text-center">
+            <h2>{{nomeAppAtualiza}}</h2>
+        </div>
+    </div>
+	<div class="form-control, jumbotron">
+		<div ng-controller="AtualizaTodos">
+			<div class="form-control" style="height: 70px;">
+				<button class="btn btn-primary btn-block" style="margin-top: 0.5%" id="draftfuture" ng-click="alertaD()">Draft para Future - Todas</button>
+			</div>
+			<div class="form-control" style="height: 70px;">
+				<button class="btn btn-primary btn-block" style="margin-top: 0.5%" id="futuredraft" ng-click="alertaF()">Future para Draft - Todas</button>
+			</div>
+			<div class="form-control" style="height: 70px;">
+				<button class="btn btn-primary btn-block" style="margin-top: 0.5%" id="futurefinal" ng-click="alertaFN()">Future para Final - Todas</button>
+			</div>		
+		</div>
+		<div ng-controller="AtualizaEspecificos">
+			<div class="form-control" style="height: 70px;">
+				<label style="margin-top: 1%; float: left;">Demandas: </label>
+				<input class="form-control" style="margin-top: 1%; margin-left: 1px; width: 30%; float: left;" type="text" id="demandasFuture" ng-model="demandasFuture" />
+				<button class="btn btn-primary" style="margin-top: 1%; margin-left: 1px;" ng-click="draftFutureEspecifico(demandasFuture)">Para Future - Especificas</button>
+			</div>
+			<div class="form-control" style="height: 70px;">
+				<label style="margin-top: 1%; float: left;">Demandas: </label>
+				<input class="form-control" style="margin-top: 1%; margin-left: 1px; width: 30%; float: left;" type="text" id="demandasDraft" ng-model="demandasDraft" />
+				<button class="btn btn-primary" style="margin-top: 1%; margin-left: 1px;" ng-click="futureDraftEspecifico(demandasDraft)">Para Draft  - Especificas</button>
+			</div>
+			<div class="form-control" style="height: 70px;">
+				<label style="margin-top: 1%; float: left;">Demandas: </label>
+				<input class="form-control" style="margin-top: 1%; margin-left: 1px; width: 30%; float: left;" type="text" id="demandasFinal" ng-model="demandasFinal" />
+				<button class="btn btn-primary" style="margin-top: 1%; margin-left: 1px;" ng-click="futureFinalEspecifico(demandasFinal)">Para Final  - Especificas</button>
+			</div>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Teste</title>
+	<script>
+		function fn1(){
+			window.open("MeuService.asmx");
+		}
+		function fn2(nome){
+			window.open("http://localhost/integracao/MeuService.asmx/RetornaNome?n=" + nome);
+		}	
+		function fn3(){
+			window.open("http://localhost/integracao/ConsultaSQL.asmx/consultaDraft");
+		}
+		function fn4(){
+			window.open("http://localhost/integracao/ConsultaSQL.asmx/consultaFuture");
+		}	
+		function fn5(){
+			window.open("http://localhost/integracao/ConsultaSQL.asmx/consultaFinal");
+		}	
+		function fn6(){
+			window.open("http://localhost/integracao/AtualizaSQL.asmx");
+		}	
+		function fn7(){
+			window.open("http://localhost/integracao/ConsultaSQL.asmx");
+		}		
+	</script>
+</head>
+<body>
+	<div>
+		<input type="button" value="MEU WS" onclick="fn1()">
+	</div>
+	<div>
+		<label> Nome: </label>
+		<input type="text" id="nome"><br/>
+		<input type="button" value="Printa Nome" onclick="fn2(nome.value)">
+	</div>
+	<div>
+		<input type="button" value="DRAFT" onclick="fn3()">
+	</div>
+	<div>
+		<input type="button" value="FUTURE" onclick="fn4()">
+	</div>
+	<div>
+		<input type="button" value="FINAL" onclick="fn5()">
+	</div>
+	<div>
+		<input type="button" value="ATUALIZAÇÃO WS" onclick="fn6()">
+	</div>	
+	<div>
+		<input type="button" value="CONSULTAS WS" onclick="fn7()">
+	</div>		
+</body>
+</html>

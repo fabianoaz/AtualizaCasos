@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html ng-app="moduloPaginaInicial">
+<head>
+    <meta charset="utf-8" />
+    <title>Integra Testlink</title>
+    <script src="./lib/js/angular.js"></script>
+    <script src="./lib/js/indexAngular.js"></script>
+    <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="IndexCtrl" class="table-responsive">
+
+        <div class="container-fluid">
+            <div class="row, jumbotron">
+                <div class="col-md-6, text-center"><h1>{{nomeAplicacao}}</h1></div>
+            </div>
+            <div class="btn-group-justified">
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-6"><h4>Telas do WebService</h4></div>
+                </div>
+                    <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                        <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="abreWSAtualizaInformacoes()">WS Atualiza </button></div>
+                        <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="abreWSRetornaInformacoes()">WS Retorna </button></div>
+                    </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-6"><h4>Retornos do WebService</h4></div>
+                </div>
+                    <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                        <div class="col-md-2"><button class="btn btn-primary btn-block" ng-click="retornaDraft()">Retorna Draft</button></div>
+                        <div class="col-md-2"><button class="btn btn-primary btn-block" ng-click="retornaFuture()">Retorna Future</button></div>
+                        <div class="col-md-2"><button class="btn btn-primary btn-block" ng-click="retornaFinal()">Retorna Final</button></div>
+                    </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-6"><h4>Telas Auxiliares</h4></div>
+                </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="listaCasos()">Lista Casos</button></div>
+                    <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="atualizaCasos()">Atualiza Casos</button></div>
+                </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-6"><h4>Lista e Atualiza</h4></div>
+                </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="listaEatualiza()">Lista e Atualiza</button></div>
+                </div>
+
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-6"><h4>Lista Tempos</h4></div>
+                </div>
+                <div class="row" style="margin-left: 20%; margin-top: 1.5px;">
+                    <div class="col-md-3"><button class="btn btn-primary btn-block" ng-click="listaTempos()">Lista Tempos</button></div>
+                </div>	
+				
+            </div>
+        </div>
+    </div>
+</body>
+</html>

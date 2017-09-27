@@ -1,0 +1,66 @@
+﻿<html ng-app="moduloTempos">
+<head>
+    <meta charset="utf-8" />
+    <title>Lista de Tempos</title>
+	<script src="../lib/js/angular.js"></script>
+	<script src="../lib/js/listaTemposAngular.js"></script>
+	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body ng-controller="ControllerTempos">
+<div class="jumbotron" ng-init="fnDataRegressivos()">
+	<div class="text-center">
+		<h2>{{nomeAppLista}}</h2>
+	</div>	
+</div>
+<select ng-model="d.p5" ng-change="fnEstimado(d.p5) ; fnRealizado(d.p5)">
+    <option ng-repeat="d in dias" id="{{d.p5}}">{{d.p5}}</option>
+</select>
+    Data 1 : {{d.p4}}
+<div style="margin-left: 40%; height: 10px;" >
+	<!--div ng-controller="tempoEstimadoCtrl" style="float: left;"-->
+    <div style="float: left;">
+        <table class="table table-bordered table-inverse">
+            <thead>
+            <th>Estimado</th>
+            </thead>
+            <tbody>
+            <thead>
+            <th>Caso</th>
+            <th>TKT</th>
+            <th>Tempo</th>
+            </thead>
+            <tr ng-repeat="e in estimado">
+                <td id="{{e.p1}}">{{e.p1}}</td>
+                <td id="{{e.p2}}">{{e.p2}}</td>
+                <td id="{{e.p3}}">{{e.p3}}</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!--div ng-controller="tempoRealizadoCtrl" style="float: left"-->
+        <div style="float: left;">
+            <table class="table table-bordered table-inverse">
+                <thead>
+                    <th>Realizado</th>
+                </thead>
+                <tbody>
+                    <thead>
+                        <th>Caso</th>
+                        <th>TKT</th>
+                        <th>Tempo</th>
+                        <th>Diferença</th>
+                    </thead>
+                    <tr ng-repeat="r in realizado">
+                        <td id="{{r.p1}}">{{r.p1}}</td>
+                        <td id="{{r.p2}}">{{r.p2}}</td>
+                        <td id="{{r.p3}}">{{r.p3}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+        </div>
+	
+</body>
+</html>

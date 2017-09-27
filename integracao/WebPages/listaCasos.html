@@ -1,0 +1,58 @@
+<html ng-app="moduloPrincipal">
+<head>
+    <meta charset="utf-8" />
+    <title>Lista de Casos</title>
+	<script src="../lib/js/angular.js"></script>
+	<script src="../lib/js/listaCasosAngular.js"></script>
+	<script src="../lib/js/atualizaCasosAngular.js"></script>
+	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body ng-controller="ControllerInicial">
+<div class="jumbotron">
+	<div class="text-center">
+		<h2>{{nomeAppLista}}</h2>
+	</div>	
+</div>	
+<div style="margin-left: 40%; height: 10px;">
+	<div ng-controller="draftController" style="float: left;">
+		<table class="table table-bordered table-inverse">
+			<thead>
+				<th>Draft</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in draft">
+					<td id="{{d}}">{{d}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+
+	<div ng-controller="futureController" style="float: left">
+		<table class="table table-bordered table-inverse">
+			<thead>
+				<th>Future</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="f in future">
+					<td id="{{f}}">{{f}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+
+	<div ng-controller="finalController" style="float: left">
+		<table class="table table-bordered table-inverse">
+			<thead>
+				<th>Final</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="f in final">
+					<td id="{{f}}">{{f}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+</body>
+</html>

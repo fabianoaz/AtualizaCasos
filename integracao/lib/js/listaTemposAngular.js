@@ -1,83 +1,52 @@
 
-var app = angular.module('moduloTempos', []);
+    var app = angular.module('moduloTempos', []);
 
-app.controller('ControllerTempos', function ControllerTempos($scope, $http, $filter, $window) {
+    app.controller('ControllerTempos', function ControllerTempos($scope, $http, $filter, $window) {
 
-    $scope.nomeAppLista = 'Lista de Tempos';
+        $scope.nomeAppLista = 'Lista de Tempos';
 
-    // $scope.fnEstimado = function() {
+        $scope.fnTempos = function(data) {
 
-    //    $scope.estimado;
-    
-    //    var url = './../ConsultaSQL.asmx/listaTempoEstimado';
-    
-    //    $http.get(url).then(function (response) {
-    //        $scope.estimado = response.data;
-    //    }, function (err) {
-    //        console.log(err);
-    //        });
+            var quebraData = data.split("/");
 
-    // }
+            var dia = quebraData[0];
+            var mes = quebraData[1];
+            var anohora = quebraData[2];
 
-    // $scope.fnRealizado = function() {
-        
-    //     $scope.realizado;
+            var quebraDataHora = anohora.split(" ");
 
-    //     var url = './../ConsultaSQL.asmx/listaTempoRealizado';
+            var ano = quebraDataHora[0];
+            var hora = quebraDataHora[1];
 
-    //     $http.get(url).then(function (response) {
-    //         $scope.realizado = response.data;
-    //     }, function (err) {
-    //         console.log(err);
-    //     });
-    // }
+            var dataParam = ano+"-"+mes+"-"+dia+" "+hora;
+            
+            $scope.limitTempo = 5;
+            
+            $scope.tempos;
 
-    $scope.fnTempos = function(data) {
+            var url = './../ConsultaSQL.asmx/calculoTempo?dataHora='+dataParam;
 
-        //$window.alert("Parametro: " + data);
+            $http.get(url).then(function (response) {
+                $scope.tempos = response.data;
+            }, function (err) {
+                console.log(err);
+            });
+        }
 
-        var quebraData = data.split("/");
+        $scope.fnDataRegressivos = function () {
 
-        var dia = quebraData[0];
-        var mes = quebraData[1];
-        var anohora = quebraData[2];
+            $scope.dias;
 
-        var quebraDataHora = anohora.split(" ");
+            var url = './../ConsultaSQL.asmx/listaDataRegressivos'
 
-        var ano = quebraDataHora[0];
-        var hora = quebraDataHora[1];
+            $http.get(url).then(function (response) {
+                $scope.dias = response.data;
+            }, function (err) {
+                console.log(err);
+            });
 
-        var dataParam = ano+"-"+mes+"-"+dia+" "+hora;
+        }
 
-         //$window.alert("Dia: " + dia + "\nMes: " + mes + "\nAno Hora: " + anohora + "\nAno: " + ano + "\nHora: " + hora + "\nData Parametro: " + dataParam);
-        
-        $scope.limitTempo = 6;
-        
-        $scope.tempos;
-
-        var url = './../ConsultaSQL.asmx/calculoTempo?dataHora='+dataParam;
-
-        $http.get(url).then(function (response) {
-            $scope.tempos = response.data;
-        }, function (err) {
-            console.log(err);
         });
-    }
-
-    $scope.fnDataRegressivos = function () {
-
-        $scope.dias;
-
-        var url = './../ConsultaSQL.asmx/listaDataRegressivos'
-
-        $http.get(url).then(function (response) {
-            $scope.dias = response.data;
-        }, function (err) {
-            console.log(err);
-        });
-
-    }
-
-	});
 
 

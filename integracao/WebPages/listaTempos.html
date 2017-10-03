@@ -1,92 +1,51 @@
-﻿<html ng-app="moduloTempos">
-<head>
-    <meta charset="utf-8" />
-    <title>Lista de Tempos</title>
-	<script src="../lib/js/angular.js"></script>
-	<script src="../lib/js/listaTemposAngular.js"></script>
-	<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-</head>
-<body ng-controller="ControllerTempos">
-<div class="jumbotron" ng-init="fnDataRegressivos()">
-	<div class="text-center">
-		<h2>{{nomeAppLista}}</h2>
-	</div>	
-</div>
-<div style="margin-left: 40%; height: 10px;" >
-    <div style="float: left;">
-        <label> Data Plano de Teste Regressivo </label>
-        <br/>
-        <select ng-model="d.p4" ng-change="fnTempos(d.p4)">
-            <option ng-repeat="d in dias" id="{{d.p4}}">{{d.p4}}</option>
-        </select>
-        <br/>
-        <table class="table table-bordered table-inverse">
-            <thead>
-            <th class="text-center">Caso</th>
-            <th class="text-center">TKT</th>
-            <th class="text-center">Estimado</th>
-            <th class="text-center">Realizado</th>
-            <th class="text-center">Diferença</th>
-            <th class="text-center">Variação</th>
-            </thead>
-            <tbody>
-            <tr ng-repeat="t in tempos">
-                <td class="text-center" id="{{t.caso}}">{{t.caso}}</td>
-                <td class="text-center" id="{{t.tkt}}">{{t.tkt}}</td>
-                <td class="text-center" id="{{t.est}}">{{t.est}}</td>
-                <td class="text-center" id="{{t.real}}">{{t.real}}</td>
-                <td class="text-center" >{{t.est - t.real}}</td>
-                <td class="text-center" >{{(t.est/t.real)*100 | limitTo:limitTempo}} %</td>
-            </tr>
-            </tbody>
-        </table>
-        </div>
-
-
-	<!--div ng-controller="tempoEstimadoCtrl" style="float: left;">
-    <div style="float: left;">
-        <table class="table table-bordered table-inverse">
-            <thead>
-            <th>Estimado</th>
-            </thead>
-            <tbody>
-            <thead>
-            <th>Caso</th>
-            <th>TKT</th>
-            <th>Tempo</th>
-            </thead>
-            <tr ng-repeat="e in estimado">
-                <td id="{{e.p1}}">{{e.p1}}</td>
-                <td id="{{e.p2}}">{{e.p2}}</td>
-                <td id="{{e.p3}}">{{e.p3}}</td>
-            </tr>
-            </tbody>
-        </table>
-        </div>
-
-        <div ng-controller="tempoRealizadoCtrl" style="float: left">
+﻿    <html ng-app="moduloTempos">
+    <head>
+        <meta charset="utf-8" />
+        <title>Lista de Tempos</title>
+        <script src="../lib/js/angular.js"></script>
+        <script src="../lib/js/listaTemposAngular.js"></script>
+        <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    </head>
+    <body ng-controller="ControllerTempos">
+    <div class="jumbotron" ng-init="fnDataRegressivos()">
+        <div class="text-center">
+            <h2>{{nomeAppLista}}</h2>
+        </div>	
+    </div>
+    <div style="margin-left: 5%; height: 10px;" >
         <div style="float: left;">
+            <label> Data Plano de Teste Regressivo </label>
+            <br/>
+            <select ng-model="d.p4" ng-change="fnTempos(d.p4)">
+                <option ng-repeat="d in dias" id="{{d.p4}}">{{d.p4}}</option>
+            </select>
+            <br/>
             <table class="table table-bordered table-inverse">
                 <thead>
-                    <th>Realizado</th>
+                <th class="text-center">Caso</th>
+                <th class="text-center">Demanda</th>
+                <th class="text-center">Estimado (min.)</th>
+                <th class="text-center">Realizado (min.)</th>
+                <th class="text-center">Diferença (min.)</th>
+                <th class="text-center">% Variação</th>
+                <th class="text-center">Total Estimado (horas)</th>
+                <th class="text-center">Total Realizado (horas)</th>
                 </thead>
                 <tbody>
-                    <thead>
-                        <th>Caso</th>
-                        <th>TKT</th>
-                        <th>Tempo</th>
-                        <th>Diferença</th>
-                    </thead>
-                    <tr ng-repeat="r in realizado">
-                        <td id="{{r.p1}}">{{r.p1}}</td>
-                        <td id="{{r.p2}}">{{r.p2}}</td>
-                        <td id="{{r.p3}}">{{r.p3}}</td>
-                    </tr>
+                <tr ng-repeat="t in tempos">
+                    <td class="text-center" id="{{t.caso}}">{{t.caso}}</td>
+                    <td class="text-center" id="{{t.tkt}}">{{t.tkt}}</td>
+                    <td class="text-center" id="{{t.est}}">{{t.est}}:00</td>
+                    <td class="text-center" id="{{t.real}}">{{t.real}}:00</td>
+                    <td class="text-center">{{t.real - t.est}}:00</td>
+                    <td class="text-center">{{t.percent | limitTo:limitTempo}} % </td>
+                    <td class="text-center">{{(t.totalEst)/60 | limitTo:limitTempo}}</td>
+                    <td class="text-center">{{(t.totalReal)/60 | limitTo:limitTempo}}</td>
+                </tr>
                 </tbody>
             </table>
-            </div-->
-
-        </div>
-	
-</body>
-</html>
+            </div>
+            </div>
+        
+    </body>
+    </html>
